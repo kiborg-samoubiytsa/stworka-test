@@ -1,0 +1,102 @@
+body {
+  margin: 0 auto !important;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: "slnt" 0;
+  color: white;
+}
+
+.circular-progress {
+  --size: 60px;
+  --half-size: calc(var(--size) / 2);
+  --stroke-width: 3px;
+  --radius: calc((var(--size) - var(--stroke-width)) / 2);
+  --circumference: calc(var(--radius) * pi * 2);
+  --dash: calc((var(--progress) * var(--circumference)) / 100);
+}
+
+.circular-progress circle {
+  cx: var(--half-size);
+  cy: var(--half-size);
+  r: var(--radius);
+  fill: none;
+  stroke-linecap: round;
+}
+
+.circular-progress circle.bg {
+  stroke: rgba(255, 255, 255, 0.5);
+  stroke-width: 1px;
+}
+
+.circular-progress circle.fg {
+  transform: rotate(-90deg);
+  transform-origin: var(--half-size) var(--half-size);
+  stroke-dasharray: var(--dash) calc(var(--circumference) - var(--dash));
+  transition: stroke-dasharray 0.3s linear 0s;
+  stroke: white;
+  stroke-width: 2px;
+}
+
+.checklist-preview {
+  margin: 0 auto;
+  margin-top: 40vh;
+  border-radius: 10px;
+  width: 743px;
+  height: 91px;
+  background-color: #3579f5;
+  display: flex;
+  align-items: center;
+}
+.checklist-progress {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 22px;
+  width: 60px;
+  height: 60px;
+}
+
+.tasks_completed {
+  position: absolute;
+  line-height: 30px;
+  font-size: 20px;
+}
+.checklist-details {
+  margin-left: 16px;
+  display: grid;
+  gap: 4px;
+}
+.cl {
+  display: flex;
+  width: 76px;
+  flex-direction: column;
+  align-items: center;
+  background-color: #2364db;
+  font-size: 12px;
+  line-height: 18px;
+  border-radius: 40px;
+  text-align: center;
+}
+.details_tasks-completed {
+  font-weight: 600;
+  line-height: 20px;
+  font-size: 15px;
+}
+.next_activity {
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.open-checklist-button {
+  padding: 10px 25px 10px 25px;
+  font-size: 14px;
+  line-height: 20px;
+  margin-left: 68px;
+  border-radius: 6px;
+  color: #4777ed;
+  background-color: #f4f8ff;
+}
